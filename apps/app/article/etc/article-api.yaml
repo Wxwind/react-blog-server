@@ -1,0 +1,5 @@
+Name: article-api
+Host: 0.0.0.0
+Port: 6211
+
+DataSource: root:Zgc3739003632@tcp(127.0.0.1:3306)/reactBlog?parseTime=true&loc=Asia%2FShanghai
