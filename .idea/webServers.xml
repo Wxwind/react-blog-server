@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e855d699-2338-40e2-a652-12a701b00725" name="wxwind">
+        <fileTransfer accessType="SFTP" host="121.41.118.167" port="22" sshConfigId="26f7a653-6469-4eb1-bfd4-6f53b6832b8f" sshConfig="轻量应用服务器" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

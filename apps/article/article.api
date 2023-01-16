@@ -1,12 +1,12 @@
 type Meta {
-	Status int32  `json:"status"`
-	Msg    string `json:"msg"`
+	Status int32  `json:"status,default=200"`
+	Msg    string `json:"msg,default=succeed"`
 }
 
 type Article {
 	Title       string `json:"title"`
 	ParticleId  int64  `json:"particleId"`
-	ImageURL    string `json:"imageUrl"`
+	ImageURL    string `json:"imageURL"`
 	Desc        string `json:"desc"`
 	PublishTime string `json:"publishTime"`
 	UpdateTime  string `json:"updateTime"`
@@ -17,8 +17,8 @@ type getArticleListResp {
 	Meta Meta       `json:"meta"`
 }
 
-type getArticlePathReq{
-	ParticleId  int64  `path:"particleId"`
+type getArticlePathReq {
+	ParticleId int64 `path:"particleId"`
 }
 
 type getArticlePathResp {
@@ -26,13 +26,12 @@ type getArticlePathResp {
 	Meta Meta   `json:"meta"`
 }
 
-
 service article-api {
 	@doc "get all articles(limit 10)"
 	@handler ArticleHandler
 	get /articles returns (getArticleListResp)
-
+	
 	@doc "get article.md file URL"
 	@handler getArticlePath
-	get /articles/:id (getArticlePathReq)returns (getArticlePathResp)
+	get /articles/:particleId (getArticlePathReq) returns (getArticlePathResp)
 }

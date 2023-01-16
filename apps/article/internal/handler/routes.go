@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"react-blog-server/apps/app/article/internal/svc"
+	"react-blog-server/apps/article/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )
@@ -19,7 +19,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 			{
 				Method:  http.MethodGet,
-				Path:    "/articles/:id",
+				Path:    "/articles/:particleId",
 				Handler: getArticlePathHandler(serverCtx),
 			},
 		},

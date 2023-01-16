@@ -2,10 +2,10 @@ package handler
 
 import (
 	"net/http"
+	"react-blog-server/apps/article/internal/logic"
+	"react-blog-server/apps/article/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"react-blog-server/apps/app/article/internal/logic"
-	"react-blog-server/apps/app/article/internal/svc"
 )
 
 func ArticleHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
