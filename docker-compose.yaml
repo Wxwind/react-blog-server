@@ -1,0 +1,57 @@
+version: '3'
+services:
+  rb-article:
+    container_name: rb-articleIns
+    build:
+      context: ./
+      dockerfile: apps/article/Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "6211:6211"
+    networks:
+      - reactBlog_net
+    depends_on:
+      - rb-mysql
+
+  rb-fileserver:
+    container_name: rb-fileserverIns
+    build:
+      context: ./
+      dockerfile: fileServer/Dockerfile
+    volumes:
+      - /soft/react_website/react_website_server/fileServer/assets:/app/assets
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "7123:7123"
+    depends_on:
+      - rb-article
+
+  rb-mysql:
+    image: mysql:8.0
+    container_name: rb-mysqlIns
+    restart: "no"
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: Zgc373903632
+    volumes:
+      - /opt/dockerVolume/mysql/reactBlog/data/:/var/lib/mysql
+      - /opt/dockerVolume/mysql/reactBlog/conf/:/etc/mysql/conf.d
+      - /opt/dockerVolume/mysql/reactBlog/init/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
+    networks:
+      - reactBlog_net
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+
+networks:
+  reactBlog_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

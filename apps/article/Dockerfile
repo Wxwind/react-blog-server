@@ -1,5 +1,9 @@
-FROM golang:latest
-COPY .. /app
+FROM golang:1.19.5
+ENV GOPROXY https://goproxy.cn
+RUN mkdir /app
 WORKDIR /app
-RUN go build -o article article.go
-CMD ["/app/article"]
+COPY . /app
+RUN go mod tidy
+RUN go build -o ./apps/article/articleEXE ./apps/article/article.go
+WORKDIR apps/article
+CMD ["./articleEXE"]

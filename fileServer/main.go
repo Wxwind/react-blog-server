@@ -28,6 +28,7 @@ func shutdownServer(server *http.Server, logger *log.Logger, quit <-chan os.Sign
 	}
 	close(done)
 }
+
 func main() {
 	flag.StringVar(&listenAddr, "listen-addr", ":7123", "server listen address")
 	flag.Parse()
@@ -39,7 +40,7 @@ func main() {
 	//让quit监听os.Interrupt信号量
 	signal.Notify(quit, os.Interrupt)
 
-	fs := http.FileServer(http.Dir("fileServer/assets/"))
+	fs := http.FileServer(http.Dir("assets/"))
 
 	router := http.NewServeMux()
 	router.Handle("/static/", http.StripPrefix("/static/", fs))

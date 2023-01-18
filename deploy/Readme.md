@@ -1,0 +1,1 @@
+1.请将“mysqlcnf配置.txt”改名为 my.cnf并放置于“/opt/dockerVolume/mysql/reactBlog/conf/”
