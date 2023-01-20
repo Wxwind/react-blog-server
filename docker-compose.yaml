@@ -20,7 +20,7 @@ services:
       context: ./
       dockerfile: fileServer/Dockerfile
     volumes:
-      - /soft/react_website/react_website_server/fileServer/assets:/app/assets
+      - /soft/react_website/react_website_server/fileServer/assets:/app/fileServer/assets
     environment:
       TZ: Asia/Shanghai
     ports:
