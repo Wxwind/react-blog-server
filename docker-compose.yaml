@@ -14,20 +14,6 @@ services:
     depends_on:
       - rb-mysql
 
-  rb-fileserver:
-    container_name: rb-fileserverIns
-    build:
-      context: ./
-      dockerfile: fileServer/Dockerfile
-    volumes:
-      - /soft/react_website/react_website_server/fileServer/assets:/app/fileServer/assets
-    environment:
-      TZ: Asia/Shanghai
-    ports:
-      - "7123:7123"
-    depends_on:
-      - rb-article
-
   rb-mysql:
     image: mysql:8.0
     container_name: rb-mysqlIns
