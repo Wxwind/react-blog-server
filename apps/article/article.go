@@ -9,6 +9,7 @@ import (
 	"react-blog-server/apps/article/internal/config"
 	"react-blog-server/apps/article/internal/handler"
 	"react-blog-server/apps/article/internal/svc"
+	"react-blog-server/apps/article/middleware"
 	"react-blog-server/common/errorx"
 
 	"github.com/zeromicro/go-zero/core/conf"
@@ -25,6 +26,8 @@ func main() {
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
+
+	server.Use(middleware.Cors)
 
 	ctx := svc.NewServiceContext(c)
 	handler.RegisterHandlers(server, ctx)
