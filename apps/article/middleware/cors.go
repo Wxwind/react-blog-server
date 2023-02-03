@@ -21,7 +21,7 @@ func Cors(next http.HandlerFunc) http.HandlerFunc {
 			//允许浏览器发送的头
 			w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 			//允许浏览器拿到的头
-			w.Header().Set("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Cache-Control, Content-Language, Content-Type")
+			w.Header().Set("Access-Control-Expose-Headers", "")
 			//是否允许cookies, authorization headers 或 TLS client certificates
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
 			w.Header().Set("content-type", "application/json")
