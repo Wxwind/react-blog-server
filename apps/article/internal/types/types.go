@@ -8,7 +8,7 @@ type Meta struct {
 
 type Article struct {
 	Title       string `json:"title"`
-	ParticleId  int64  `json:"particleId"`
+	ArticleId   int64  `json:"articleId"`
 	ImageURL    string `json:"imageURL"`
 	Desc        string `json:"desc"`
 	PublishTime string `json:"publishTime"`

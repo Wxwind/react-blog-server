@@ -24,7 +24,7 @@ func NewArticleLogic(ctx context.Context, svcCtx *svc.ServiceContext) *ArticleLo
 }
 
 func (l *ArticleLogic) Article() (resp *types.GetArticleListResp, err error) {
-	articles, err := l.svcCtx.ArticleModel.Find(l.ctx, 2)
+	articles, err := l.svcCtx.ArticleModel.Find(l.ctx, 10)
 	if err != nil {
 		return &types.GetArticleListResp{Data: nil, Meta: types.Meta{Status: 500, Msg: err.Error()}}, errorx.NewCodeError(errorx.DATABASE_MYSQL_INTERNAL_ERROR, err.Error())
 	}
@@ -33,7 +33,7 @@ func (l *ArticleLogic) Article() (resp *types.GetArticleListResp, err error) {
 
 		res = append(res, &types.Article{
 			Title:       a.Title,
-			ParticleId:  a.Id,
+			ArticleId:   a.Id,
 			ImageURL:    a.ImageUrl,
 			Desc:        a.Describes.String,
 			PublishTime: a.PublishTime.Format("2006-01-02"),
