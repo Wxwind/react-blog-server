@@ -37,7 +37,7 @@ func main() {
 		case *errorx.CodeError:
 			return http.StatusOK, e.ToData()
 		default:
-			return http.StatusInternalServerError, nil
+			return http.StatusInternalServerError, err.Error()
 		}
 	})
 
@@ -46,7 +46,7 @@ func main() {
 		case *errorx.CodeError:
 			return http.StatusOK, e.ToData()
 		default:
-			return http.StatusInternalServerError, nil
+			return http.StatusInternalServerError, err.Error()
 		}
 	})
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)

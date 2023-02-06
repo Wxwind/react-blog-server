@@ -3,6 +3,8 @@ package errorx
 const (
 	DATABASE_MYSQL_INTERNAL_ERROR     = 1001
 	DATABASE_MYSQL_NOT_EXISTS_ARTICLE = 1002
+	LOGIN_WRONG_PASSWORD              = 2001
+	LOGIN_NOT_EXISTS_USERNAME         = 2001
 )
 
 type CodeError struct {

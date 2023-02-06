@@ -27,7 +27,7 @@ func NewGetArticleListLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Ge
 func (l *GetArticleListLogic) GetArticleList() (resp *types.GetArticleListResp, err error) {
 	articles, err := l.svcCtx.ArticleModel.Find(l.ctx, 10)
 	if err != nil {
-		return &types.GetArticleListResp{Data: nil, Meta: types.Meta{Status: 500, Msg: err.Error()}}, errorx.NewCodeError(errorx.DATABASE_MYSQL_INTERNAL_ERROR, err.Error())
+		return nil, errorx.NewCodeError(errorx.DATABASE_MYSQL_INTERNAL_ERROR, err.Error())
 	}
 	var res []*types.Article
 	for _, a := range articles {
@@ -42,6 +42,4 @@ func (l *GetArticleListLogic) GetArticleList() (resp *types.GetArticleListResp, 
 		})
 	}
 	return &types.GetArticleListResp{Data: res, Meta: types.Meta{Status: 200, Msg: "succeed"}}, nil
-
-	return
 }

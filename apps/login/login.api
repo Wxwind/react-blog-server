@@ -22,5 +22,5 @@ type LoginResp {
 service login-api {
 	@doc "login"
 	@handler login
-	get /articles/:particleId (LoginReq) returns (LoginResp)
+	get /login (LoginReq) returns (LoginResp)
 }
