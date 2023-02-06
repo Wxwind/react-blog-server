@@ -2,7 +2,7 @@ Name: login-api
 Host: 0.0.0.0
 Port: 6210
 
-DataSource: root:Zgc373903632@tcp(rb-mysqlIns:3306)/reactBlog?parseTime=true&loc=Asia%2FShanghai
+DataSource: root:Zgc373903632@tcp(localhost:3306)/reactBlog?parseTime=true&loc=Asia%2FShanghai
 Auth:
-  AccessSecret: 373903632
+  AccessSecret: zgc373903632
   AccessExpire: 86400

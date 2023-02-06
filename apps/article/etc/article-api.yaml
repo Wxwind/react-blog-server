@@ -4,5 +4,5 @@ Port: 6211
 
 DataSource: root:Zgc373903632@tcp(rb-mysqlIns:3306)/reactBlog?parseTime=true&loc=Asia%2FShanghai
 Auth:
-  AccessSecret: 373903632
+  AccessSecret: zgc373903632
   AccessExpire: 86400
