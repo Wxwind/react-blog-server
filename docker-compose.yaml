@@ -1,5 +1,19 @@
 version: '3'
 services:
+  rb-login:
+    container_name: rb-loginIns
+    build:
+      context: ./
+      dockerfile: apps/login/Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "6210:6210"
+    networks:
+      - reactBlog_net
+    depends_on:
+      - rb-mysql
+
   rb-article:
     container_name: rb-articleIns
     build:

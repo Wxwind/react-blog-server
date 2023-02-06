@@ -1,0 +1,26 @@
+syntax = "v1"
+
+type Meta struct {
+	Status int32  `json:"status,default=200"`
+	Msg    string `json:"msg,default=succeed"`
+}
+
+type loginReq {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type loginRespData{
+	Token string `json:"token"`
+}
+
+type loginResp {
+	Data loginRespData `json:"data"`
+	Meta Meta       `json:"meta"`
+}
+
+service login-api {
+	@doc "login"
+	@handler login
+	get /articles/:particleId (loginReq) returns (loginResp)
+}

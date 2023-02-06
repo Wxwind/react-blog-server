@@ -1,3 +1,5 @@
+syntax = "v1"
+
 type Meta {
 	Status int32  `json:"status,default=200"`
 	Msg    string `json:"msg,default=succeed"`
@@ -26,21 +28,21 @@ type getArticlePathResp {
 	Meta Meta   `json:"meta"`
 }
 
-type addArticleReq{
-	Title string `json:"title"`
-	MdFileName int32 `json:"mdFileName"`
-	ImageURL string `json:"imageURL"`
-	Desc string `json:"desc"`
+type addArticleReq {
+	Title       string `json:"title"`
+	MdFileName  int32  `json:"mdFileName"`
+	ImageURL    string `json:"imageURL"`
+	Desc        string `json:"desc"`
 	PublishTime string `json:"publishTime"`
 	UpdateTime  string `json:"updateTime"`
 }
-type addArticleResp{
+type addArticleResp {
 	ArticleURL string `json:"articleURL"`
 }
 
 service article-api {
 	@doc "get all articles(limit 10)"
-	@handler ArticleHandler
+	@handler getArticleList
 	get /articles returns (getArticleListResp)
 	
 	@doc "get article.md file URL"
@@ -51,7 +53,7 @@ service article-api {
 @server(
 	jwt: Auth
 )
-service article-admin-api {
+service article-api {
 	@doc "add article to fileServer and Sql"
 	@handler addArticle
 	post /articles (addArticleReq) returns (addArticleResp)
