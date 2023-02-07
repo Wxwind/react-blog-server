@@ -1,26 +1,3 @@
 syntax = "v1"
 
-type Meta {
-	Status int32  `json:"status,default=200"`
-	Msg    string `json:"msg,default=succeed"`
-}
 
-type LoginReq {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type LoginRespData {
-	Token string `json:"token"`
-}
-
-type LoginResp {
-	Data LoginRespData `json:"data"`
-	Meta Meta          `json:"meta"`
-}
-
-service login-api {
-	@doc "login"
-	@handler login
-	post /login (LoginReq) returns (LoginResp)
-}

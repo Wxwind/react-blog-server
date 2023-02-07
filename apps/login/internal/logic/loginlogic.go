@@ -47,6 +47,7 @@ func (l *LoginLogic) Login(req *types.LoginReq) (resp *types.LoginResp, err erro
 		}
 		return &types.LoginResp{
 			Data: types.LoginRespData{Token: token},
+			Meta: types.Meta{Status: 200, Msg: "succeed"},
 		}, nil
 	} else {
 		return nil, errorx.NewCodeError(errorx.LOGIN_WRONG_PASSWORD, "密码错误")

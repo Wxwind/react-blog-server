@@ -1,0 +1,34 @@
+syntax = "v1"
+
+import(
+	"articleType.api"
+	"loginType.api"
+)
+
+service article-api {
+	@doc "get all articles(limit 10)"
+	@handler getArticleList
+	get /articles returns (getArticleListResp)
+	
+	@doc "get article.md file URL"
+	@handler getArticlePath
+	get /articles/:particleId (GetArticlePathReq) returns (GetArticlePathResp)
+}
+
+//Admin
+service artilce-api {
+	@doc "login"
+	@handler login
+	post /login (LoginReq) returns (LoginResp)
+}
+
+@server(
+	jwt: Auth
+)
+service article-api {
+	@doc "add article to fileServer and Sql"
+	@handler addArticle
+	post /articles (AddArticleReq) returns (AddArticleResp)
+}
+
+
