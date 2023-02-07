@@ -9,6 +9,7 @@ import (
 type ServiceContext struct {
 	Config       config.Config
 	ArticleModel model.ArticleModel
+	UserModel    model.UserModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
@@ -16,5 +17,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:       c,
 		ArticleModel: model.NewArticleModel(conn),
+		UserModel:    model.NewUserModel(conn),
 	}
 }

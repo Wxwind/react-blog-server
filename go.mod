@@ -3,7 +3,9 @@ module react-blog-server
 go 1.19
 
 require (
+	github.com/golang-jwt/jwt/v4 v4.4.3
 	github.com/lib/pq v1.10.7
+	github.com/pkg/errors v0.9.1
 	github.com/zeromicro/go-zero v1.4.3
 )
 
@@ -18,7 +20,6 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
-	github.com/golang-jwt/jwt/v4 v4.4.3 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/pprof v0.0.0-20211214055906-6f57359322fd // indirect
 	github.com/google/uuid v1.3.0 // indirect

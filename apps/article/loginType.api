@@ -1,9 +1,6 @@
 syntax = "v1"
 
-type Meta {
-    Status int32  `json:"status,default=200"`
-    Msg    string `json:"msg,default=succeed"`
-}
+import "meta.api"
 
 type LoginReq {
     Username string `json:"username"`

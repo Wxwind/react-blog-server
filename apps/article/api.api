@@ -16,7 +16,7 @@ service article-api {
 }
 
 //Admin
-service artilce-api {
+service article-api {
 	@doc "login"
 	@handler login
 	post /login (LoginReq) returns (LoginResp)
@@ -30,5 +30,3 @@ service article-api {
 	@handler addArticle
 	post /articles (AddArticleReq) returns (AddArticleResp)
 }
-
-
